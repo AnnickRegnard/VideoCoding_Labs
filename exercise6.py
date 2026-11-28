@@ -1,7 +1,7 @@
 import numpy as np
 from first_seminar import ColorTranslator
 
-# Bloque 8x8 clásico de luminancia (valores de píxeles 0-255)
+# Standard 8x8 luminance test block (pixel values 0-255)
 block_8x8 = np.array([
     [52, 55, 61, 66, 70, 61, 64, 73],
     [63, 59, 55, 90, 109, 85, 69, 72],
@@ -15,31 +15,31 @@ block_8x8 = np.array([
 
 translator = ColorTranslator()
 
-# 1. Aplicar DCT-II
+# 1. Apply forward DCT-II
 dct_block = translator.DCT(block_8x8)
-print("DCT original (redondeada para visualizar):")
+print("DCT original (rounded for display):")
 print(np.round(dct_block, 1))
 
-# 2. Comparar diferentes Quality Factors (alto, medio, bajo)
+# 2. Compare different Quality Factors (high, medium, low)
 for qf in [90, 50, 10]:
     print(f"\n{'='*50}")
     print(f"QUALITY FACTOR = {qf}")
     print(f"{'='*50}")
-    
-    # Cuantizar y descuantizar
+
+    # Quantize and dequantize
     dct_q = translator.quantization(dct_block, qf)
     dct_deq = translator.dequantize(dct_q, qf)
-    
-    # Reconstruir bloque con Inverse DCT
+
+    # Reconstruct block with Inverse DCT
     reconstructed = translator.inv_DCT(dct_deq)
-    
-    # Contar cuántos coeficientes se vuelven 0 (especialmente altas frecuencias)
+
+    # Count zeroed coefficients (especially high frequencies)
     zeros_count = np.sum(dct_q == 0)
     mse = np.mean((block_8x8 - reconstructed) ** 2)
-    
-    print("Matriz cuantizada (DCT_q):")
+
+    print("Quantized matrix (DCT_q):")
     print(dct_q.astype(int))
-    print(f"\nCoeficientes anulados (ceros): {zeros_count} / 64")
-    print(f"Error cuadrático medio (MSE) tras IDCT: {mse:.2f}")
-    print("\nBloque reconstruido:")
+    print(f"\nZeroed coefficients: {zeros_count} / 64")
+    print(f"MSE after IDCT: {mse:.2f}")
+    print("\nReconstructed block:")
     print(reconstructed.astype(int))

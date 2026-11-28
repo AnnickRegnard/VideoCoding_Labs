@@ -1,7 +1,4 @@
-'''
-zigzag function from:
-https://www.geeksforgeeks.org/python/python-program-for-print-matrix-in-zag-zag-fashion/
-'''
+# Zigzag reference: https://www.geeksforgeeks.org/python/python-program-for-print-matrix-in-zag-zag-fashion/
 
 from first_seminar import ColorTranslator
 import numpy as np
@@ -37,11 +34,5 @@ print(matrix_recovered)
 print("\n----------------------------------")
 
 
-'''
-Why this order?
-
-Because the next step after applying DCT is doing RLE. So we want to have a 
-resulting 1D array where the DCT coefficients with similar values are put one 
-after the other.
-
-'''
+# Zigzag orders DCT coefficients low-to-high frequency so RLE
+# can efficiently compress trailing zeros (high-frequency coeffs)

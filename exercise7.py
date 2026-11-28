@@ -1,12 +1,10 @@
-'''
-logic taken from:
-https://www.geeksforgeeks.org/python/run-length-encoding-python/
-https://www.geeksforgeeks.org/dsa/huffman-coding-in-python/ 
-'''
+# References:
+# https://www.geeksforgeeks.org/python/run-length-encoding-python/
+# https://www.geeksforgeeks.org/dsa/huffman-coding-in-python/
 
 from first_seminar import ColorTranslator, build_huffman_tree, generate_huffman_codes
 
-zigzagged = [1,1,1,6,6,4,7,7,7,7,8,8,5,3,3,3,3,3,3]
+zigzagged = [1, 1, 1, 6, 6, 4, 7, 7, 7, 7, 8, 8, 5, 3, 3, 3, 3, 3, 3]
 
 rle_encoder = ColorTranslator()
 rle = rle_encoder.RLE(zigzagged)
@@ -18,20 +16,20 @@ zigzagged_recovered = rle_encoder.RLE_decoder(rle)
 
 print("RLE decoder output: ", zigzagged_recovered)
 
-# 2. Calcular frecuencias desde el RLE
+# 2. Compute frequencies from RLE
 values, freq = rle_encoder.RLE_frequencies(rle)
-print("\nValores únicos:", values)
-print("Frecuencias:", freq)
+print("\nUnique values:", values)
+print("Frequencies:", freq)
 
-# 3. Construir árbol y códigos de Huffman
+# 3. Build Huffman tree and codes
 root = build_huffman_tree(values, freq)
 huffman_codes = generate_huffman_codes(root)
 
-print("\nCódigos de Huffman generados:")
+print("\nGenerated Huffman codes:")
 for val, code in huffman_codes.items():
-    print(f"  Valor {val} -> {code}")
+    print(f"  Value {val} -> {code}")
 
-# 4. Codificar la secuencia original usando los códigos de Huffman
+# 4. Encode original sequence using Huffman codes
 encoded_bitstream = "".join(huffman_codes[val] for val in zigzagged)
-print("\nSecuencia codificada (bits):", encoded_bitstream)
+print("\nEncoded bitstream:", encoded_bitstream)
 

@@ -149,6 +149,16 @@ if __name__ == "__main__":
 
 
 '''
-If JPEG2000 wins… why is the whole world still using JPEG?Despite JPEG2000's superior rate-distortion performance, progressive decoding, and absence of blocking artifacts, standard JPEG remains dominant due to ecosystem inertia, computational complexity, and early patent concerns. When JPEG2000 was standardized in 2000, JPEG was already universally supported across every web browser, operating system, and digital camera, creating a massive chicken-and-egg adoption barrier. Moreover, JPEG2000's arithmetic coder (EBCOT) and full-frame DWT require significantly more CPU/memory resources and are much harder to parallelize in low-power hardware than JPEG's simple $8\times8$ block-based DCT. Combined with initial fears over patent licensing and the lack of native support in major web browsers (historically only Safari supported it), JPEG2000 remained confined to niche professional industries—such as digital cinema (DCP), medical imaging (DICOM), and archival preservation—while consumer devices stuck with JPEG until modern replacements like WebP and AVIF arrived.
+If JPEG2000 wins… why is the whole world still using JPEG?
+Despite JPEG2000's superior rate-distortion performance, progressive decoding, and absence of blocking 
+artifacts, standard JPEG remains dominant due to ecosystem inertia, computational complexity, and early 
+patent concerns. When JPEG2000 was standardized in 2000, JPEG was already universally supported across 
+every web browser, operating system, and digital camera, creating a massive chicken-and-egg adoption barrier.
+Moreover, JPEG2000's arithmetic coder (EBCOT) and full-frame DWT require significantly more CPU/memory 
+resources and are much harder to parallelize in low-power hardware than JPEG's simple 8 times8 block-based
+DCT. Combined with initial fears over patent licensing and the lack of native support in major web browsers 
+(historically only Safari supported it), JPEG2000 remained confined to niche professional industries—such 
+as digital cinema (DCP), medical imaging (DICOM), and archival preservation—while consumer 
+devices stuck with JPEG until modern replacements like WebP and AVIF arrived.
 
 '''

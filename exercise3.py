@@ -52,5 +52,10 @@ plt.tight_layout()
 plt.show()
 
 
+'''
+Blurring luma (Y) is immediately noticeable because the human eye is much more sensitive to brightness 
+and fine spatial detail than to color. JPEG and video codecs exploit this by subsampling or compressing 
+chroma (U, V) more aggressively, saving significant bandwidth and storage with minimal perceived quality loss.
+'''
 
 
